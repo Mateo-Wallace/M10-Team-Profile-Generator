@@ -1,0 +1,26 @@
+{
+  "name": "m10-team-profile-generator",
+  "version": "1.0.0",
+  "description": "Team Profile Generator to practice Object Oriented Programming",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mateo-Wallace/M10-Team-Profile-Generator.git"
+  },
+  "keywords": [
+    "oop"
+  ],
+  "author": "Mateo Wallace",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mateo-Wallace/M10-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Mateo-Wallace/M10-Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^24.9.0"
+  }
+}
