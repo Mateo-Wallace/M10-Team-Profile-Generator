@@ -16,6 +16,17 @@
     - `npm i inquirer@8.2.4` installs inquirer
     - `npm install --save-dev jest@24.8.0` installs jest
 - Created basic file structure
+- Added js files for employee, intern, engineer, manager to lib tab
+    - Added equivalents in __tests__ folder
+- Added generateHTML.js to src folder
+
+## Day 1 Progress
+
+- In index.js added basic structure of functions
+    - init, write to file, questions
+    - linked generateHTML
+- Wrote basic generateHTML function in src folder
+- Able to print a test index.html to dist folder
 
 ## Questions for class
 
