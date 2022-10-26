@@ -16,3 +16,10 @@
     - `npm i inquirer@8.2.4` installs inquirer
     - `npm i jest@24.9.0` installs jest
 - Created basic file structure
+
+## Questions for class
+
+- How to install jest
+- Difference between dependencies and devDependencies
+    - How to install as a devDependencies
+- What goes in `dist/` and `src/`
