@@ -28,6 +28,11 @@
 - Wrote basic generateHTML function in src folder
 - Able to print a test index.html to dist folder
 
+## Day 2 Progress
+
+- Fully styled test.html
+- Added Seth Wooten startup code
+
 ## Questions for class
 
 - What goes in `src/`
