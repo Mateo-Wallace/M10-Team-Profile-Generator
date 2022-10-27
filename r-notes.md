@@ -32,6 +32,12 @@
 
 - Fully styled test.html
 - Added Seth Wooten startup code
+- Copied code from Employee.js to other files in lib
+    - Edited them to extend employee and super employee
+    - Added selectors and functions based on employee type
+- Wrote tests based on Employee.test.js from [Ryan Ellingson](https://github.com/RyanEllingson/Team-Profile-Generator/blob/master/test/Employee.test.js)
+    - No other code looked at aside from this test
+- All tests written and everything passing
 
 ## Questions for class
 
