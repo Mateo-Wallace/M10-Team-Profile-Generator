@@ -50,7 +50,9 @@ The generated html file should look something like this:
 
 ![example html output](https://i.imgur.com/SeVDaBf.png)
 
-For an example of the application at work see the video at: [drive.google.com](https://drive.google.com/file/d/11IijEZHgxA5-KvhpW2Hjbk-RGs1FMnmU/view)
+For an example of the application at work see the:
+- Video: [drive.google.com](https://drive.google.com/file/d/11IijEZHgxA5-KvhpW2Hjbk-RGs1FMnmU/view)
+- Deployed Example Site: [Team Boy](https://mateo-wallace.github.io/M10-Team-Profile-Generator/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Tests
