@@ -1,16 +1,3 @@
-// // Determine required modules, including custom local modules
-// const fs = require('fs');
-// const inquirer = require('inquirer');
-// const generateHTML = require('./src/generateHTML');
-
-// // Create Questions for user
-// const questions = [
-//     {
-//         type: 'input',
-//         message: 'What is the EMPLOYEE ID?',
-//         name: 'employeeId',
-//     },
-// ];
 // // Create write to file function
 // function writeToFile(src) {
 //     fs.writeFile('./dist/index.html', src, (err) =>
@@ -32,10 +19,13 @@ const render = require('./src/generateHTML');
 
 const teamMembers = [];
 
+// Checks if an input is a number
+const numValidation = (name) => {
+  var valid = +name
+  // Check if input is 'NaN'. If not, returns true
+  return ((valid.toString() !== 'NaN') ? true : 'Not a number. Try again.')
+}
 
-
-// Questions
-// init questions
 const initQuestions = [
   {
     name: 'role',
@@ -52,12 +42,7 @@ const initQuestions = [
     name: 'id',
     type: 'input',
     message: 'What is their Id number?',
-    validate: (name) => {
-      // converts input into a number. if they typed in a letter the number will return 'NaN'
-      var valid = +name
-      // Check if value is 'NaN'. If not, returns true
-      return ((valid.toString() !== 'NaN') ? true : 'Not a number. Try again.')
-    },
+    validate: numValidation,
   },
   {
     name: 'email',
@@ -72,22 +57,30 @@ const initQuestions = [
   },
 ];
 
-// employee questions
 const managerQuestions = [
   {
-    name: 'office number',
+    name: 'office',
     type: 'input',
     message: 'What is the Managers Office Number?',
+    validate: numValidation,
   }
-]
-// manager questions
+];
 
-// engineer questions
+const engineerQuestions = [
+  {
+    name: 'gitHub',
+    type: 'input',
+    message: 'What is the Engineers GitHub username?',
+  }
+];
 
-// intern questions
-
-
-
+const internQuestions = [
+  {
+    name: 'school',
+    type: 'input',
+    message: 'What School did the Intern go to?',
+  }
+];
 
 
 // function for creating manager - inquirer questions
@@ -107,34 +100,39 @@ const managerQuestions = [
 
 // at the end, use fs to write file while sending the team array over to the function you brought in from page-template.js
 
+
+// Asks questions only required of Manager
 function callManager(initData) {
   inquirer
     .prompt(managerQuestions)
     .then((response) => {
-      console.log('initManager works')
+      console.log('call Manager works')
     })
 }
 
+// Asks questions only required of Engineer
 function callEngineer(initData) {
   inquirer
     .prompt(engineerQuestions)
     .then((response) => {
-      console.log('initManager works')
+      console.log('call Engineer works')
     })
 }
 
+// Asks questions only required of Intern
 function callIntern(initData) {
   inquirer
     .prompt(internQuestions)
     .then((response) => {
-      console.log('initManager works')
+      console.log('call Intern works')
     })
 }
 
-// Create initialization function
+// Asks basic employee questions.
 function init() {
   inquirer
     .prompt(initQuestions)
+    // Redirects to specific questions based on employee role
     .then((response) => {
       switch (response.role) {
         case 'Manager':
@@ -154,5 +152,5 @@ function init() {
     });
 }
 
-// Call init
+// Start the entire application
 init();
