@@ -96,6 +96,7 @@ function addNewMember(initData, employeeData) {
     .prompt(newMemberQuestion)
     .then((response) => {
 
+      // Creates object based on employee type
       switch (initData.role) {
         case 'Manager':
           var employee = new Manager(initData.name, initData.id, initData.email, employeeData.office);
@@ -107,15 +108,15 @@ function addNewMember(initData, employeeData) {
           var employee = new Intern(initData.name, initData.id, initData.email, employeeData.school);
       };
 
+      // Adds team member to array
       teamMembers.push(employee);
 
+      // Determines if user wanted a new member. if yes repeats function. if no prints html
       switch (response.newMember) {
         case 'Yes':
-          console.log('Yes chosen. Sending to init()');
           init();
           break;
         case 'No':
-          console.log('No chosen. Printing HTML');
           writeToHtml();
           break;
         default:
@@ -129,7 +130,6 @@ function callManager(initData) {
   inquirer
     .prompt(managerQuestions)
     .then((response) => {
-      console.log('call Manager works');
       addNewMember(initData, response);
     })
 }
@@ -139,7 +139,6 @@ function callEngineer(initData) {
   inquirer
     .prompt(engineerQuestions)
     .then((response) => {
-      console.log('call Engineer works');
       addNewMember(initData, response);
     })
 }
@@ -149,7 +148,6 @@ function callIntern(initData) {
   inquirer
     .prompt(internQuestions)
     .then((response) => {
-      console.log('call Intern works');
       addNewMember(initData, response);
     })
 }
@@ -170,15 +168,12 @@ function init() {
     .then((response) => {
       switch (response.role) {
         case 'Manager':
-          console.log('Manager chosen. Sending to callManager()');
           callManager(response);
           break;
         case 'Engineer':
-          console.log('Engineer chosen. Sending to callEngineer()')
           callEngineer(response);
           break;
         case 'Intern':
-          console.log('Intern chosen. Sending to callIntern()')
           callIntern(response);
           break;
         default:
