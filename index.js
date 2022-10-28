@@ -1,10 +1,3 @@
-// // Create write to file function
-// function writeToFile(src) {
-//     fs.writeFile('./dist/index.html', src, (err) =>
-//         err ? console.error(err) : console.log('HTML file saved as team.html in dist folder')
-//     )
-// }
-
 // Global Modules
 const fs = require('fs');
 const path = require('path');
@@ -97,31 +90,24 @@ const newMemberQuestion = [
   }
 ]
 
-
-// function for creating manager - inquirer questions
-// take those questions and create a new Manager with the user provided answers
-// push that new Manager to the team members array
-
-// follow the same pattern for each type of employee
-// build a function for them that uses inquirer
-
-
-// STRUCTURING IT
-
-// start with manager function, since every team needs a manager
-// at the end of manager function, call a createTeam function
-
-// this function would simply ask the user which type of employee they would like to add, based on their choice, run the correesponding function
-
-// at the end, use fs to write file while sending the team array over to the function you brought in from page-template.js
-
 // Ask if user would like to add new employee. If yes, calls init. If no prints html
 function addNewMember(initData, employeeData) {
   inquirer
     .prompt(newMemberQuestion)
     .then((response) => {
 
-      // ADD A FUNCTION TO ADD THIS USER AND CREATE NEW TEAM MEMBER
+      switch (initData.role) {
+        case 'Manager':
+          var employee = new Manager(initData.name, initData.id, initData.email, employeeData.office);
+          break;
+        case 'Engineer':
+          var employee = new Engineer(initData.name, initData.id, initData.email, employeeData.gitHub);
+          break;
+        case 'Intern':
+          var employee = new Intern(initData.name, initData.id, initData.email, employeeData.school);
+      };
+
+      teamMembers.push(employee);
 
       switch (response.newMember) {
         case 'Yes':
@@ -129,14 +115,12 @@ function addNewMember(initData, employeeData) {
           init();
           break;
         case 'No':
-          console.log('No chosen. Printing HTML')
-          
-          // ADD FUNCTION TO PRINT HTML
-
+          console.log('No chosen. Printing HTML');
+          writeToHtml();
           break;
         default:
-          console.log(`response.newMember is not targeting anything. It is returning: ${response.newMember}`)
-      }
+          console.log(`response.newMember is not targeting anything. It is returning: ${response.newMember}`);
+      };
     })
 }
 
@@ -169,6 +153,14 @@ function callIntern(initData) {
       addNewMember(initData, response);
     })
 }
+
+// // at the end, use fs to write file while sending the team array over to the function you brought in from page-template.js
+// // Prints html file with all team members
+// function writeToHtml() {
+//     fs.writeFile(distPath, src, (err) =>
+//         err ? console.error(err) : console.log('HTML file saved as team.html in dist folder')
+//     )
+// }
 
 // Asks basic employee questions.
 function init() {
