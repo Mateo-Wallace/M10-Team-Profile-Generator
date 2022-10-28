@@ -78,22 +78,71 @@ function generateHTML(teamMembers) {
 }
 
 // create the manager html
-const generateManager = manager => {
+function generateManager (e) {
     return `
+
+            <!-- Manager Card -->
+            <div class="block rounded-lg shadow-lg bg-slate-100 w-96 text-center m-5 break-words">
+                <div class="py-3 px-6 border-b border-gray-300 bg-rose-700 text-white text-2xl rounded-t-lg">
+                    <h2>${e.name}</h2>
+                    <p class="text-xl"><i class="fa-solid fa-mug-hot"></i> Manager</p>
+                </div>
+                <div class="p-6">
+                    <ul class="bg-white p-3 border border-gray-300 rounded-md">
+                        <li class="border-b border-gray-300 p-2 pt-0">ID: ${e.id}</li>
+                        <li class="border-b border-gray-300 p-2">Email: <a href="mailto:${e.email}"
+                                class="text-rose-600 hover:text-rose-400">${e.email}</a></li>
+                        <li class="p-2 pb-0">Office number: ${e.office}</li>
+                    </ul>
+                </div>
+            </div>
         
         `;
 };
 
 // create the html for engineers
-const generateEngineer = engineer => {
+function generateEngineer (e) {
     return `
+
+            <!-- Engineer Card -->
+            <div class="block rounded-lg shadow-lg bg-slate-100 w-96 text-center m-5 break-words">
+                <div class="py-3 px-6 border-b border-gray-300 bg-rose-700 text-white text-2xl rounded-t-lg">
+                    <h2>${e.name}</h2>
+                    <p class="text-xl"><i class="fa-solid fa-code"></i> Engineer</p>
+                </div>
+                <div class="p-6">
+                    <ul class="bg-white p-3 border border-gray-300 rounded-md">
+                        <li class="border-b border-gray-300 p-2 pt-0">ID: ${e.id}</li>
+                        <li class="border-b border-gray-300 p-2">Email: <a href="mailto:${e.email}"
+                                class="text-rose-600 hover:text-rose-400">${e.email}</a></li>
+                        <li class="p-2 pb-0">GitHub: <a href="https://github.com/${e.gitHub}" target="_blank"
+                                class="text-rose-600 hover:text-rose-400">${e.gitHub}</a></li>
+                    </ul>
+                </div>
+            </div>
 
         `;
 };
 
 // create the html for interns
-const generateIntern = intern => {
+function generateIntern (e) {
     return `
+
+            <!-- Intern Card -->
+            <div class="block rounded-lg shadow-lg bg-slate-100 w-96 text-center m-5 break-words">
+                <div class="py-3 px-6 border-b border-gray-300 bg-rose-700 text-white text-2xl rounded-t-lg">
+                    <h2>${e.name}</h2>
+                    <p class="text-xl"><i class="fa-solid fa-graduation-cap"></i> Intern</p>
+                </div>
+                <div class="p-6">
+                    <ul class="bg-white p-3 border border-gray-300 rounded-md">
+                        <li class="border-b border-gray-300 p-2 pt-0">ID: ${e.id}</li>
+                        <li class="border-b border-gray-300 p-2">Email: <a href="mailto:${e.email}"
+                                class="text-rose-600 hover:text-rose-400">${e.email}</a></li>
+                        <li class="p-2 pb-0">School: ${e.school}</li>
+                    </ul>
+                </div>
+            </div>
 
         `;
 };
