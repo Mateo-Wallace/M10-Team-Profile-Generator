@@ -9,11 +9,11 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const render = require('./src/generateHTML');
+const generateHTML = require('./src/generateHTML');
 
 // Pathing for printing html
 const DIST_DIR = path.resolve(__dirname, 'dist');
-const distPath = path.join(DIST_DIR, 'team.html');
+const distPath = path.join(DIST_DIR, 'index.html');
 
 // Array for team to be added to
 const teamMembers = [];
@@ -154,13 +154,13 @@ function callIntern(initData) {
     })
 }
 
-// // at the end, use fs to write file while sending the team array over to the function you brought in from page-template.js
-// // Prints html file with all team members
-// function writeToHtml() {
-//     fs.writeFile(distPath, src, (err) =>
-//         err ? console.error(err) : console.log('HTML file saved as team.html in dist folder')
-//     )
-// }
+// at the end, use fs to write file while sending the team array over to the function you brought in from page-template.js
+// Prints html file with all team members
+function writeToHtml() {
+    fs.writeFile(distPath, generateHTML(teamMembers), (err) =>
+        err ? console.error(err) : console.log('HTML file saved as team.html in dist folder')
+    )
+}
 
 // Asks basic employee questions.
 function init() {
