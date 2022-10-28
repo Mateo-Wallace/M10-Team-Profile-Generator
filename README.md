@@ -1,196 +1,81 @@
-# M10-Team-Profile-Generator
-Object oriented programming project for UCF Coding Bootcamp
+<p id="readme-top"></p>
 
-# 10 Object-Oriented Programming: Team Profile Generator
+[![License Shield](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)](./LICENSE) [![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace-57931b254/)
 
-## Your Task
+# M10 - Team Profile Generator
 
-Your task is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. 
+## Description
 
-Because this Challenge will require the use of the `Inquirer` package, ensure that you install and use Inquirer version 8.2.4. To do so, use the following command in your project folder: `npm i inquirer@8.2.4`.
+"What is it?", "Why did you build it", "What problem does it solve?"
+Team Profile Generator is a JavaScript based application that takes user input to create an HTML file. It was good practice for learning to build Classes and create objects. 
 
-Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
+While building this project I learned to:
+- Use the jest npm to create tests
+    - Build tests as a framework for what is expected from a project
+- Link multiple files together using module exports and module requires
+- Build objects based on user input by sending them to classes
+- Make classes require other classes in order to not repeat code
 
-Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and all of the tests passing. You’ll need to submit a link to the video AND add it to the readme of your project.
+### Built With
 
-> **Note**: There is no starter code for this assignment.
+[![JavaScript Shield](https://img.shields.io/badge/JavaScript-F7DF1E?&style=for-the-badge&logo=javascript&logoColor=272727)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/) [![jQuery Shield](https://img.shields.io/badge/jQuery-0769AD?&style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com/) [![HTML Shield](https://img.shields.io/badge/HTML5-E34F26?&style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5) [![Tailwind CSS Shield](https://img.shields.io/badge/Tailwind_CSS-06B6D4?&style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
-## User Story
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Tests](#tests)
+- [License](#license)
+- [Contact](#contact)
 
-```md
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
-```
+## Installation
 
-## Acceptance Criteria
+1. Clone the repo down to your local machine.
+2. If you don't have Node.js, navigate to [nodejs.org](https://nodejs.org/en/) & download v16.18.0 or LTS.
+3. Open the directory in your terminal and run `npm i` .
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
-```
+## Usage
 
-## Mock-Up
+Open your terminal, and in the command line run 
 
-The following image shows a mock-up of the generated HTML’s appearance and functionality:
+	npm start
 
-![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./assets/images/10-object-oriented-programming-homework-demo.png)
+Follow the prompts and answer as accurately as possible.
 
-The styling in the image is just an example, so feel free to add your own.
+![example of user inputs](https://i.imgur.com/fbJzfVy.png)
 
-## Getting Started
+After all inputs have been submitted. A prompt will appear saying `HTML file saved as index.html in dist folder`. Navigate to the `dist` folder and right click `index.html`. Select `open in default browser`. 
 
-This Challenge will combine many of the skills we've covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help get started.
+The generated html file should look something like this:
 
-Because this Challenge will require a video submission, refer to the [Fullstack Blog Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for additional guidance on creating a video.
+![example html output](https://i.imgur.com/SeVDaBf.png)
 
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) for collecting input from the user. The application will be invoked by using the following command:
+For an example of the application at work see the video at: [drive.google.com](https://drive.google.com/file/d/11IijEZHgxA5-KvhpW2Hjbk-RGs1FMnmU/view)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```bash
-node index.js
-```
+## Tests
 
-It is recommended that you start with a directory structure that looks like the following example:
+### Test 1
+To run jest based tests in the command line run 
+    
+    npm test
 
-```md
-.
-├── __tests__/             //jest tests
-│   ├── Employee.test.js
-│   ├── Engineer.test.js
-│   ├── Intern.test.js
-│   └── Manager.test.js
-├── dist/                  // rendered output (HTML) and CSS style sheet      
-├── lib/                   // classes
-├── src/                   // template helper code 
-├── .gitignore             // indicates which folders and files Git should ignore
-├── index.js               // runs the application
-└── package.json           
-```
+### Test 2
 
-**Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and include it when you push up to your application's repository.
+Try typing in invalid inputs.
+- Type `not a number` in ID. ID will only submit if you use a number value such as `10`
+- Type `mateo.mateo` in email. Email will only submit if you use a valid email such as `mateo@mateo.com`
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-The application must include `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `_tests_` directory) must ALL pass.
+## License
 
-The first class is an `Employee` parent class with the following properties and methods:
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-* `name`
+## Contact
 
-* `id`
-
-* `email`
-
-* `getName()`
-
-* `getId()`
-
-* `getEmail()`
-
-* `getRole()`&mdash;returns `'Employee'`
-
-The other three classes will extend `Employee`.
-
-In addition to `Employee`'s properties and methods, `Manager` will also have the following:
-
-* `officeNumber`
-
-* `getRole()`&mdash;overridden to return `'Manager'`
-
-In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
-
-* `github`&mdash;GitHub username
-
-* `getGithub()`
-
-* `getRole()`&mdash;overridden to return `'Engineer'`
-
-In addition to `Employee`'s properties and methods, `Intern` will also have the following:
-
-* `school`
-
-* `getSchool()`
-
-* `getRole()`&mdash;overridden to return `'Intern'`
-
-Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria:
-
-### Deliverables: 15%
-
-* A sample HTML file generated using the application must be submitted.
-
-* Your GitHub repository containing your application code.
-
-### Walkthrough Video: 32%
-
-* A walkthrough video that demonstrates the functionality of the Team Profile Generator and passing tests must be submitted, and a link to the video should be included in your README file.
-
-* The walkthrough video must show all four tests passing from the command line.
-
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
-
-* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-
-* The walkthrough video must demonstrate a generated HTML file that matches the user input.
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Uses the [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4).
-
-  * Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
-
-  * The application must have `Employee`, `Manager`, `Engineer`, and `Intern` classes.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* A sample HTML file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+For any further questions feel free to contact me via:
+- GitHub: [Mateo-Wallace](https://github.com/Mateo-Wallace)
+- Email: [mateo.t.wallace@gmail.com](mailto:mateo.t.wallace@gmail.com)
+- LinkedIn: [Mateo Wallace](https://www.linkedin.com/in/mateo-wallace-57931b254/)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -156,7 +156,7 @@ function callIntern(initData) {
 // Prints html file with all team members
 function writeToHtml() {
     fs.writeFile(distPath, generateHTML(teamMembers), (err) =>
-        err ? console.error(err) : console.log('HTML file saved as team.html in dist folder')
+        err ? console.error(err) : console.log('HTML file saved as index.html in dist folder')
     )
 }
 
