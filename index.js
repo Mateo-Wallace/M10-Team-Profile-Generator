@@ -82,6 +82,15 @@ const internQuestions = [
   }
 ];
 
+const newMemberQuestion = [
+  {
+    name: 'newMember',
+    type: 'list',
+    message: 'Would you like to add a New Team Member?',
+    choices: ['Yes', 'No'],
+  }
+]
+
 
 // function for creating manager - inquirer questions
 // take those questions and create a new Manager with the user provided answers
@@ -99,14 +108,22 @@ const internQuestions = [
 // this function would simply ask the user which type of employee they would like to add, based on their choice, run the correesponding function
 
 // at the end, use fs to write file while sending the team array over to the function you brought in from page-template.js
-
+function addNewMember(initData, employeeData) {
+  inquirer
+    .prompt(newMemberQuestion)
+    .then((response) => {
+      console.log(`Add New Member works! You chose: ${response.newMember}`);
+      // addNewMember(initData, response);
+    })
+}
 
 // Asks questions only required of Manager
 function callManager(initData) {
   inquirer
     .prompt(managerQuestions)
     .then((response) => {
-      console.log('call Manager works')
+      console.log('call Manager works');
+      addNewMember(initData, response);
     })
 }
 
@@ -115,7 +132,8 @@ function callEngineer(initData) {
   inquirer
     .prompt(engineerQuestions)
     .then((response) => {
-      console.log('call Engineer works')
+      console.log('call Engineer works');
+      addNewMember(initData, response);
     })
 }
 
@@ -124,7 +142,8 @@ function callIntern(initData) {
   inquirer
     .prompt(internQuestions)
     .then((response) => {
-      console.log('call Intern works')
+      console.log('call Intern works');
+      addNewMember(initData, response);
     })
 }
 
@@ -146,6 +165,7 @@ function init() {
         case 'Intern':
           console.log('Intern chosen. Sending to callIntern()')
           callIntern(response);
+          break;
         default:
           console.log(`response.role is not targeting anything. It is returning: ${response.role}`)
       }
