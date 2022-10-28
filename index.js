@@ -1,22 +1,28 @@
 // // Create write to file function
 // function writeToFile(src) {
 //     fs.writeFile('./dist/index.html', src, (err) =>
-//         err ? console.error(err) : console.log('HTML file saved as index.html in src folder')
+//         err ? console.error(err) : console.log('HTML file saved as team.html in dist folder')
 //     )
 // }
 
+// Global Modules
+const fs = require('fs');
+const path = require('path');
+
+// Third Party Modules
+const inquirer = require('inquirer');
+
+// Local Modules
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const inquirer = require('inquirer');
-const path = require('path');
-const fs = require('fs');
+const render = require('./src/generateHTML');
 
+// Pathing for printing html
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const distPath = path.join(DIST_DIR, 'team.html');
 
-const render = require('./src/generateHTML');
-
+// Array for team to be added to
 const teamMembers = [];
 
 // Checks if an input is a number
@@ -108,12 +114,29 @@ const newMemberQuestion = [
 // this function would simply ask the user which type of employee they would like to add, based on their choice, run the correesponding function
 
 // at the end, use fs to write file while sending the team array over to the function you brought in from page-template.js
+
+// Ask if user would like to add new employee. If yes, calls init. If no prints html
 function addNewMember(initData, employeeData) {
   inquirer
     .prompt(newMemberQuestion)
     .then((response) => {
-      console.log(`Add New Member works! You chose: ${response.newMember}`);
-      // addNewMember(initData, response);
+
+      // ADD A FUNCTION TO ADD THIS USER AND CREATE NEW TEAM MEMBER
+
+      switch (response.newMember) {
+        case 'Yes':
+          console.log('Yes chosen. Sending to init()');
+          init();
+          break;
+        case 'No':
+          console.log('No chosen. Printing HTML')
+          
+          // ADD FUNCTION TO PRINT HTML
+
+          break;
+        default:
+          console.log(`response.newMember is not targeting anything. It is returning: ${response.newMember}`)
+      }
     })
 }
 
